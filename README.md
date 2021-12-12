@@ -1,2 +1,2 @@
 # projecteuler
-Solving Project Euler with Python
+Solving Project Euler with Python and Julia
