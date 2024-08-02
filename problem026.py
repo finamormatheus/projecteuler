@@ -19,6 +19,61 @@ Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. It can be see
 Find the value of d < 1000 for which 1/d contains the longest recurring cycle in its decimal fraction part.
 """
 
+# Brute force
+
+# def is_recurring_cycle(string, pattern):
+#     if len(pattern) < len(string):
+#         for i in range(0, len(string), len(pattern)):
+#             if i+len(pattern) <= len(string):
+#                 if string[i:i+len(pattern)] != pattern:
+#                     return False
+
+#         return True
+#     else:
+#         return False
+
+# def fraction_to_decimal(numerator=1, denominator=1, max_digits=10000):
+#     quotient, remainder = divmod(numerator, denominator)
+#     result = [str(quotient), '.']
+    
+#     for _ in range(max_digits):
+#         quotient, remainder = divmod(remainder * 10, denominator)
+#         result.append(str(quotient))
+#         if remainder == 0:
+#             break
+    
+#     return ''.join(result)
+
+# biggest_recurring_cycle = 1
+# recurring_cycle = 1
+
+# for d in range(2, 100):
+#     decimals = fraction_to_decimal(denominator=d)[2:]
+
+#     recurring_cycle_aux = 1
+
+#     while recurring_cycle_aux < len(decimals):
+#         for i in range(len(decimals)-recurring_cycle_aux):
+#             pattern = decimals[i:i+recurring_cycle_aux]
+#             if is_recurring_cycle(decimals[i+recurring_cycle_aux:], pattern):
+#                 recurring_cycle = recurring_cycle_aux
+#                 recurring_cycle_aux = len(decimals) + 1
+#                 break
+
+#         recurring_cycle_aux += 1
+
+#     if recurring_cycle > biggest_recurring_cycle:
+#         final_d = d
+#         final_pattern = pattern
+#         biggest_recurring_cycle = recurring_cycle
+
+# print(f'Answer: {final_d}')
+
+# print(f'''
+# Number: {fraction_to_decimal(denominator=final_d, max_digits=biggest_recurring_cycle*3)}
+# Pattern found: {final_pattern}
+# ''')
+
 """
 In a long division process we repeat the process: get the rest, multiply by 10, divide by the denominator
 
